@@ -1,0 +1,285 @@
+﻿namespace Курсовая
+{
+    partial class MainForm
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        public void InitializeComponent()
+        {
+            AddToBasketButton = new Button();
+            DeleteFromBasketButton = new Button();
+            PayButton = new Button();
+            ProductList = new ListBox();
+            ShoppingCartList = new ListBox();
+            label1 = new Label();
+            TotalAmountLabel = new Label();
+            label2 = new Label();
+            BudgetLabel = new Label();
+            button1 = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            WeighButton = new Button();
+            ProductPictureBox = new PictureBox();
+            ProductInfoTextBox = new TextBox();
+            QuantityNumericUpDown = new NumericUpDown();
+            label5 = new Label();
+            label6 = new Label();
+            BonusLabel = new Label();
+            ((System.ComponentModel.ISupportInitialize)ProductPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)QuantityNumericUpDown).BeginInit();
+            SuspendLayout();
+            // 
+            // AddToBasketButton
+            // 
+            AddToBasketButton.Location = new Point(12, 533);
+            AddToBasketButton.Name = "AddToBasketButton";
+            AddToBasketButton.Size = new Size(160, 67);
+            AddToBasketButton.TabIndex = 0;
+            AddToBasketButton.Text = "Добавить в корзину";
+            AddToBasketButton.UseVisualStyleBackColor = true;
+            AddToBasketButton.Click += AddToCartButton_Click;
+            // 
+            // DeleteFromBasketButton
+            // 
+            DeleteFromBasketButton.Location = new Point(192, 533);
+            DeleteFromBasketButton.Name = "DeleteFromBasketButton";
+            DeleteFromBasketButton.Size = new Size(160, 67);
+            DeleteFromBasketButton.TabIndex = 1;
+            DeleteFromBasketButton.Text = "Удалить из корзины";
+            DeleteFromBasketButton.UseVisualStyleBackColor = true;
+            DeleteFromBasketButton.Click += RemoveFromCartButton_Click;
+            // 
+            // PayButton
+            // 
+            PayButton.Location = new Point(900, 533);
+            PayButton.Name = "PayButton";
+            PayButton.Size = new Size(141, 67);
+            PayButton.TabIndex = 2;
+            PayButton.Text = "Оплатить";
+            PayButton.UseVisualStyleBackColor = true;
+            PayButton.Click += PayButton_Click;
+            // 
+            // ProductList
+            // 
+            ProductList.FormattingEnabled = true;
+            ProductList.ItemHeight = 15;
+            ProductList.Location = new Point(13, 87);
+            ProductList.Name = "ProductList";
+            ProductList.Size = new Size(339, 424);
+            ProductList.TabIndex = 3;
+            // 
+            // ShoppingCartList
+            // 
+            ShoppingCartList.FormattingEnabled = true;
+            ShoppingCartList.ItemHeight = 15;
+            ShoppingCartList.Location = new Point(849, 87);
+            ShoppingCartList.Name = "ShoppingCartList";
+            ShoppingCartList.Size = new Size(216, 334);
+            ShoppingCartList.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(849, 442);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 21);
+            label1.TabIndex = 5;
+            label1.Text = "ИТОГО:";
+            // 
+            // TotalAmountLabel
+            // 
+            TotalAmountLabel.AutoSize = true;
+            TotalAmountLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TotalAmountLabel.Location = new Point(849, 486);
+            TotalAmountLabel.Name = "TotalAmountLabel";
+            TotalAmountLabel.Size = new Size(135, 21);
+            TotalAmountLabel.TabIndex = 6;
+            TotalAmountLabel.Text = "TotalAmountLabel";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Bernard MT Condensed", 48F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(399, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(389, 76);
+            label2.TabIndex = 8;
+            label2.Text = "Best Shop Ever";
+            // 
+            // BudgetLabel
+            // 
+            BudgetLabel.AutoSize = true;
+            BudgetLabel.Location = new Point(10, 19);
+            BudgetLabel.Name = "BudgetLabel";
+            BudgetLabel.Size = new Size(38, 15);
+            BudgetLabel.TabIndex = 9;
+            BudgetLabel.Text = "label3";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(207, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(145, 39);
+            button1.TabIndex = 10;
+            button1.Text = "Пополнить баланс";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Bernard MT Condensed", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(10, 53);
+            label3.Name = "label3";
+            label3.Size = new Size(104, 31);
+            label3.TabIndex = 11;
+            label3.Text = "Products";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Bernard MT Condensed", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(849, 53);
+            label4.Name = "label4";
+            label4.Size = new Size(75, 28);
+            label4.TabIndex = 12;
+            label4.Text = "Basket";
+            // 
+            // WeighButton
+            // 
+            WeighButton.Location = new Point(374, 533);
+            WeighButton.Name = "WeighButton";
+            WeighButton.Size = new Size(130, 67);
+            WeighButton.TabIndex = 13;
+            WeighButton.Text = "Взвесить";
+            WeighButton.UseVisualStyleBackColor = true;
+            WeighButton.Click += WeighButton_Click;
+            // 
+            // ProductPictureBox
+            // 
+            ProductPictureBox.Location = new Point(503, 87);
+            ProductPictureBox.Name = "ProductPictureBox";
+            ProductPictureBox.Size = new Size(297, 324);
+            ProductPictureBox.TabIndex = 14;
+            ProductPictureBox.TabStop = false;
+            // 
+            // ProductInfoTextBox
+            // 
+            ProductInfoTextBox.Location = new Point(503, 440);
+            ProductInfoTextBox.Multiline = true;
+            ProductInfoTextBox.Name = "ProductInfoTextBox";
+            ProductInfoTextBox.Size = new Size(297, 67);
+            ProductInfoTextBox.TabIndex = 7;
+            // 
+            // QuantityNumericUpDown
+            // 
+            QuantityNumericUpDown.Location = new Point(364, 111);
+            QuantityNumericUpDown.Name = "QuantityNumericUpDown";
+            QuantityNumericUpDown.Size = new Size(120, 23);
+            QuantityNumericUpDown.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(358, 87);
+            label5.Name = "label5";
+            label5.Size = new Size(133, 21);
+            label5.TabIndex = 16;
+            label5.Text = "Количество штук";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(849, 19);
+            label6.Name = "label6";
+            label6.Size = new Size(135, 15);
+            label6.TabIndex = 17;
+            label6.Text = "Ваши бонусные баллы";
+            // 
+            // BonusLabel
+            // 
+            BonusLabel.AutoSize = true;
+            BonusLabel.Location = new Point(1003, 19);
+            BonusLabel.Name = "BonusLabel";
+            BonusLabel.Size = new Size(38, 15);
+            BonusLabel.TabIndex = 18;
+            BonusLabel.Text = "label7";
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1107, 634);
+            Controls.Add(BonusLabel);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(QuantityNumericUpDown);
+            Controls.Add(ProductPictureBox);
+            Controls.Add(WeighButton);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(button1);
+            Controls.Add(BudgetLabel);
+            Controls.Add(label2);
+            Controls.Add(ProductInfoTextBox);
+            Controls.Add(TotalAmountLabel);
+            Controls.Add(label1);
+            Controls.Add(ShoppingCartList);
+            Controls.Add(ProductList);
+            Controls.Add(PayButton);
+            Controls.Add(DeleteFromBasketButton);
+            Controls.Add(AddToBasketButton);
+            Name = "MainForm";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)ProductPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)QuantityNumericUpDown).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button AddToBasketButton;
+        private Button DeleteFromBasketButton;
+        private Button PayButton;
+        private ListBox ProductList;
+        private ListBox ShoppingCartList;
+        private Label label1;
+        private Label TotalAmountLabel;
+        private Label label2;
+        private Label BudgetLabel;
+        private Button button1;
+        private Label label3;
+        private Label label4;
+        private Button WeighButton;
+        private PictureBox ProductPictureBox;
+        private TextBox ProductInfoTextBox;
+        private NumericUpDown QuantityNumericUpDown;
+        private Label label5;
+        private Label label6;
+        private Label BonusLabel;
+    }
+}
