@@ -12,11 +12,11 @@ namespace Курсовая
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Создание экземпляра класса Customer
-            Customer customer = new Customer();
+            //Customer customer = new Customer();
             // Создание экземпляра класса MainPresenter и передача аргументов
-            MainPresenter presenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
+            
             // Создание экземпляра класса MainForm и передача аргумента presenter
-            MainForm mainForm = new MainForm(presenter);
+            MainForm mainForm = new MainForm();
 
             Application.Run(mainForm);
         }

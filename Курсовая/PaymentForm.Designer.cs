@@ -49,9 +49,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(22, 19);
+            label1.Location = new Point(25, 25);
             label1.Name = "label1";
-            label1.Size = new Size(208, 32);
+            label1.Size = new Size(253, 41);
             label1.TabIndex = 0;
             label1.Text = "Сумма к оплате";
             // 
@@ -59,9 +59,9 @@
             // 
             TotalAmountLabel.AutoSize = true;
             TotalAmountLabel.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TotalAmountLabel.Location = new Point(249, 19);
+            TotalAmountLabel.Location = new Point(285, 25);
             TotalAmountLabel.Name = "TotalAmountLabel";
-            TotalAmountLabel.Size = new Size(78, 32);
+            TotalAmountLabel.Size = new Size(97, 41);
             TotalAmountLabel.TabIndex = 1;
             TotalAmountLabel.Text = "label2";
             // 
@@ -69,9 +69,10 @@
             // 
             CashRadioButton.AutoSize = true;
             CashRadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CashRadioButton.Location = new Point(63, 171);
+            CashRadioButton.Location = new Point(72, 228);
+            CashRadioButton.Margin = new Padding(3, 4, 3, 4);
             CashRadioButton.Name = "CashRadioButton";
-            CashRadioButton.Size = new Size(167, 25);
+            CashRadioButton.Size = new Size(212, 32);
             CashRadioButton.TabIndex = 2;
             CashRadioButton.TabStop = true;
             CashRadioButton.Text = "Оплата наличными";
@@ -81,9 +82,10 @@
             // 
             CardRadioButton.AutoSize = true;
             CardRadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CardRadioButton.Location = new Point(63, 211);
+            CardRadioButton.Location = new Point(72, 281);
+            CardRadioButton.Margin = new Padding(3, 4, 3, 4);
             CardRadioButton.Name = "CardRadioButton";
-            CardRadioButton.Size = new Size(134, 25);
+            CardRadioButton.Size = new Size(168, 32);
             CardRadioButton.TabIndex = 3;
             CardRadioButton.TabStop = true;
             CardRadioButton.Text = "Оплата картой";
@@ -93,9 +95,10 @@
             // 
             BonusRadioButton.AutoSize = true;
             BonusRadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            BonusRadioButton.Location = new Point(63, 250);
+            BonusRadioButton.Location = new Point(72, 333);
+            BonusRadioButton.Margin = new Padding(3, 4, 3, 4);
             BonusRadioButton.Name = "BonusRadioButton";
-            BonusRadioButton.Size = new Size(154, 25);
+            BonusRadioButton.Size = new Size(195, 32);
             BonusRadioButton.TabIndex = 4;
             BonusRadioButton.TabStop = true;
             BonusRadioButton.Text = "Оплата бонусами";
@@ -103,9 +106,10 @@
             // 
             // PayButton
             // 
-            PayButton.Location = new Point(196, 351);
+            PayButton.Location = new Point(224, 468);
+            PayButton.Margin = new Padding(3, 4, 3, 4);
             PayButton.Name = "PayButton";
-            PayButton.Size = new Size(180, 69);
+            PayButton.Size = new Size(206, 92);
             PayButton.TabIndex = 5;
             PayButton.Text = "Оплатить";
             PayButton.UseVisualStyleBackColor = true;
@@ -115,9 +119,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(22, 69);
+            label2.Location = new Point(25, 92);
             label2.Name = "label2";
-            label2.Size = new Size(158, 32);
+            label2.Size = new Size(187, 41);
             label2.TabIndex = 6;
             label2.Text = "Ваш баланс";
             // 
@@ -125,9 +129,9 @@
             // 
             BudgetLabel.AutoSize = true;
             BudgetLabel.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BudgetLabel.Location = new Point(249, 69);
+            BudgetLabel.Location = new Point(285, 92);
             BudgetLabel.Name = "BudgetLabel";
-            BudgetLabel.Size = new Size(78, 32);
+            BudgetLabel.Size = new Size(97, 41);
             BudgetLabel.TabIndex = 7;
             BudgetLabel.Text = "label3";
             // 
@@ -135,10 +139,9 @@
             // 
             PayPartRadioButton.AutoSize = true;
             PayPartRadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PayPartRadioButton.Location = new Point(63, 292);
-            PayPartRadioButton.Margin = new Padding(3, 2, 3, 2);
+            PayPartRadioButton.Location = new Point(72, 389);
             PayPartRadioButton.Name = "PayPartRadioButton";
-            PayPartRadioButton.Size = new Size(143, 25);
+            PayPartRadioButton.Size = new Size(178, 32);
             PayPartRadioButton.TabIndex = 8;
             PayPartRadioButton.TabStop = true;
             PayPartRadioButton.Text = "Оплата частями";
@@ -146,61 +149,63 @@
             // 
             // CashAmountTextBox
             // 
-            CashAmountTextBox.Location = new Point(264, 296);
+            CashAmountTextBox.Location = new Point(302, 395);
+            CashAmountTextBox.Margin = new Padding(3, 4, 3, 4);
             CashAmountTextBox.Name = "CashAmountTextBox";
-            CashAmountTextBox.Size = new Size(100, 23);
+            CashAmountTextBox.Size = new Size(114, 27);
             CashAmountTextBox.TabIndex = 9;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(262, 272);
+            label3.Location = new Point(299, 363);
             label3.Name = "label3";
-            label3.Size = new Size(114, 15);
+            label3.Size = new Size(141, 20);
             label3.TabIndex = 10;
             label3.Text = "Сумма наличными";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(391, 272);
+            label4.Location = new Point(447, 363);
             label4.Name = "label4";
-            label4.Size = new Size(86, 15);
+            label4.Size = new Size(107, 20);
             label4.TabIndex = 11;
             label4.Text = "Сумма картой";
             // 
             // CardAmountTextBox
             // 
-            CardAmountTextBox.Location = new Point(391, 296);
+            CardAmountTextBox.Location = new Point(447, 395);
+            CardAmountTextBox.Margin = new Padding(3, 4, 3, 4);
             CardAmountTextBox.Name = "CardAmountTextBox";
-            CardAmountTextBox.Size = new Size(100, 23);
+            CardAmountTextBox.Size = new Size(114, 27);
             CardAmountTextBox.TabIndex = 12;
             // 
             // BonusLabel
             // 
             BonusLabel.AutoSize = true;
             BonusLabel.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BonusLabel.Location = new Point(387, 108);
+            BonusLabel.Location = new Point(442, 144);
             BonusLabel.Name = "BonusLabel";
-            BonusLabel.Size = new Size(78, 32);
+            BonusLabel.Size = new Size(34, 41);
             BonusLabel.TabIndex = 13;
-            BonusLabel.Text = "label5";
+            BonusLabel.Text = "5";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Symbol", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(22, 108);
+            label6.Location = new Point(25, 144);
             label6.Name = "label6";
-            label6.Size = new Size(343, 32);
+            label6.Size = new Size(407, 41);
             label6.TabIndex = 14;
             label6.Text = "Количество ваших бонусов";
             // 
             // PaymentForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(578, 432);
+            ClientSize = new Size(661, 576);
             Controls.Add(label6);
             Controls.Add(BonusLabel);
             Controls.Add(CardAmountTextBox);
@@ -216,6 +221,7 @@
             Controls.Add(CashRadioButton);
             Controls.Add(TotalAmountLabel);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "PaymentForm";
             Text = "PaymentForm";
             ResumeLayout(false);
@@ -225,19 +231,19 @@
         #endregion
 
         private Label label1;
-        private Label TotalAmountLabel;
         private RadioButton CashRadioButton;
         private RadioButton CardRadioButton;
         private RadioButton BonusRadioButton;
         private Button PayButton;
         private Label label2;
-        private Label BudgetLabel;
         private RadioButton PayPartRadioButton;
         private TextBox CashAmountTextBox;
         private Label label3;
         private Label label4;
         private TextBox CardAmountTextBox;
-        private Label BonusLabel;
         private Label label6;
+        public Label BonusLabel;
+        public Label BudgetLabel;
+        public Label TotalAmountLabel;
     }
 }

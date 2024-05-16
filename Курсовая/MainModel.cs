@@ -54,17 +54,17 @@ namespace Курсовая
         public void LoadProducts()
         {
             // Добавление продуктов в список
-            Products.Add(new Product("Мука ", 50, 1.2m, false,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\мука.jpg"));
-            Products.Add(new Product("Сахар", 45, 1.0m, false ,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\сахар.jpg"));
-            Products.Add(new Product("Пшеничный хлеб", 25, 0.3m, false,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\хлеб пшеничный.jpg"));
-            Products.Add(new Product("Молоко", 60, 1.0m, false, "C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\молоко.jpg"));
-            Products.Add(new Product("Куриное филе", 120, 0.7m, true,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\куриное филе.png"));
-            Products.Add(new Product("Яблоки", 70, 1.5m, true, "C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\яблоки.jpg"));
-            Products.Add(new Product("Картофель", 30, 2.0m, true,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\картофель.jpg"));
-            Products.Add(new Product("Помидоры", 90, 1.0m, true,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\помидоры.jpg"));
-            Products.Add(new Product("Огурцы", 80, 1.0m, true,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\огурцы.png"));
-            Products.Add(new Product("Сыр", 200, 0.5m, false, "C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\сыр.jpg"));
-            Products.Add(new Product("Йогурт", 35, 0.2m, false,"C:\\Users\\User\\Desktop\\Курсовая последняя версия\\Курсовая\\Images\\йогурт.png"));
+            Products.Add(new Product("Мука ", 50, 1.2m, false,"Images\\мука.jpg"));
+            Products.Add(new Product("Сахар", 45, 1.0m, false ,"Images\\сахар.jpg"));
+            Products.Add(new Product("Пшеничный хлеб", 25, 0.3m, false,"Images\\хлеб пшеничный.jpg"));
+            Products.Add(new Product("Молоко", 60, 1.0m, false, "Images\\молоко.jpg"));
+            Products.Add(new Product("Куриное филе", 120, 0.7m, true,"Images\\куриное филе.png"));
+            Products.Add(new Product("Яблоки", 70, 1.5m, true, "Images\\яблоки.jpg"));
+            Products.Add(new Product("Картофель", 30, 2.0m, true,"Images\\картофель.jpg"));
+            Products.Add(new Product("Помидоры", 90, 1.0m, true,"Images\\помидоры.jpg"));
+            Products.Add(new Product("Огурцы", 80, 1.0m, true,"Images\\огурцы.png"));
+            Products.Add(new Product("Сыр", 200, 0.5m, false, "Images\\сыр.jpg"));
+            Products.Add(new Product("Йогурт", 35, 0.2m, false,"Images\\йогурт.png"));
 
         }
     }

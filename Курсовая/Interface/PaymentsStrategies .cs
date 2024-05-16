@@ -67,6 +67,7 @@ namespace Курсовая.Interface
                 mainPresenter.Customer.ClearShoppingBasket();
                 mainPresenter.UpdateShoppingCartView();
                 mainPresenter.UpdateTotalAmount();
+                
 
                 paymentPresenter.OnPaymentCompleted(); // Вызываем событие PaymentCompleted
 
@@ -96,20 +97,29 @@ namespace Курсовая.Interface
         {
             decimal maxBonusAmount = totalAmount / 2;
             decimal userBudget = mainPresenter.GetUserBudgetLabel();
-            int bonusPoints = mainPresenter.Customer.GetBonusPoints(mainPresenter);  // Получаем количество бонусных очков
+           // int bonusPoints = mainPresenter.Customer.GetBonusPoints(mainPresenter);  // Получаем количество бонусных очков
+            int bonusPoints = mainPresenter.bonusPoints;  // Получаем количество бонусных очков
 
-            if (bonusPoints > 0 && bonusPoints >= maxBonusAmount)
+            if (bonusPoints > 0 && !mainPresenter.isPayByBonus)
             {
+                
                 decimal bonusPayment = Math.Min(bonusPoints, maxBonusAmount);
+                //bonusPayment = 10;
                 decimal remainingAmount = totalAmount - bonusPayment;
 
                 bonusPoints -= (int)bonusPayment;
-
+                mainPresenter.bonusPoints = bonusPoints;
                 // Обновляем текст лейбла с бонусами после оплаты бонусами
-                bonusLabel.Text = bonusPoints.ToString();
 
-                if (remainingAmount > 0)
+                bonusLabel.Text = bonusPoints.ToString();
+                mainPresenter.BonusLabel.Text = bonusPoints.ToString();
+
+                if (remainingAmount > 0 )
                 {
+                    mainPresenter.TotalAmountValue = remainingAmount;
+                    mainPresenter.TotalAmountLabel.Text = remainingAmount.ToString();
+                    mainPresenter.TotalAmountLabelPay.Text = remainingAmount.ToString();
+                    mainPresenter.isPayByBonus = true;
                     MessageBox.Show($"Оплата бонусами (до 50% от суммы корзины) успешно выполнена. Оставшаяся сумма для оплаты: {remainingAmount} руб.");
                 }
                 else

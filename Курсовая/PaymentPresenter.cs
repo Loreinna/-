@@ -33,7 +33,7 @@ namespace Курсовая
         }
         public void Pay()
         {
-            decimal totalAmount = mainPresenter.CalculateTotalAmount();
+            decimal totalAmount = mainPresenter.TotalAmountValue;
             paymentStrategy.Pay(totalAmount);
         }
 

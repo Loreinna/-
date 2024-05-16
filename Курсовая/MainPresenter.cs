@@ -15,16 +15,21 @@ namespace Курсовая
         private readonly ListBox ShoppingCartList;
         private List<IObserver> observers = new List<IObserver>();
         public Label TotalAmountLabel { get; set; }
-        public int bonusPoints{get; private set; }
+        public Label TotalAmountLabelPay { get; set; }
+        public Label BonusLabel {  get; set; }
+        public decimal TotalAmountValue { get; set; }
+
+        public bool isPayByBonus;
+        public int bonusPoints{get; set; }
         private readonly ProductRepository productRepository;
         private decimal UserBudget;
         private decimal userWeight;
-        private readonly MainForm mainForm;
+        //private readonly MainForm mainForm;
 
-        public MainPresenter(MainForm mainForm)
-        {
-            this.mainForm = mainForm;
-        }
+        //public MainPresenter(MainForm mainForm)
+        //{
+        //    this.mainForm = mainForm;
+        //}
 
         public MainPresenter(Customer customer, ListBox productList, ListBox shoppingCartList, Label totalAmountLabel)
         {
@@ -33,9 +38,12 @@ namespace Курсовая
             this.ShoppingCartList = shoppingCartList;
             this.TotalAmountLabel = totalAmountLabel;
             this.productRepository = new ProductRepository();
+            BonusLabel = new Label();
             LoadProducts();
             GetUserBudget();
             bonusPoints = CalculateBonusPoints(UserBudget);
+            isPayByBonus = false;
+
 
         }
 
@@ -60,6 +68,7 @@ namespace Курсовая
         public void UpdateBudgetAfterPayment(decimal totalAmount)
         {
             Notify(UserBudget);
+            isPayByBonus = false;
         }
 
         public void LoadProducts()
@@ -139,8 +148,13 @@ namespace Курсовая
         //Апдейтим бюджет
         public void UpdateTotalAmount()
         {
-            decimal totalAmount = CalculateTotalAmount();
-            TotalAmountLabel.Text = $"{totalAmount} руб.";
+            TotalAmountValue = CalculateTotalAmount();
+
+            TotalAmountLabel.Text = $"{TotalAmountValue} руб.";
+            //BonusLabel.Text = $"{bonusPoints}";
+            //надо думать
+            if (TotalAmountLabelPay != null)
+            TotalAmountLabelPay.Text = $"{TotalAmountValue} руб.";
         }
         public void AddProductToBasket(Product product)
         {

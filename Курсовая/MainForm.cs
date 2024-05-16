@@ -9,27 +9,30 @@ namespace Курсовая
     {
         private readonly MainPresenter mainpresenter;
         private PaymentPresenter Paypresenter;
-
-        public MainForm(MainPresenter presenter)
+        PaymentForm paymentForm;
+        public MainForm()
         {
             InitializeComponent();
-            this.mainpresenter = presenter;
+            // MainPresenter presenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
+            Customer customer = new Customer();
+            mainpresenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
             mainpresenter.Attach(this); // Подписываем форму как наблюдателя
 
-            BudgetLabel.Text = $"Ваш бюджет: {presenter.GetUserBudgetLabel()} руб.";// Отображаем бюджет пользователя на форме
-            BonusLabel.Text = $"{presenter.CalculateBonusPoints(presenter.GetUserBudgetLabel())}";
+            BudgetLabel.Text = $"Ваш бюджет: {mainpresenter.GetUserBudgetLabel()} руб.";// Отображаем бюджет пользователя на форме
+            BonusLabel.Text = $"{mainpresenter.bonusPoints}";
             ProductRepository productRepository = new ProductRepository(); // Привязываем данные из ProductRepository к ProductList на форме
             ProductList.DataSource = productRepository.Products;
             ProductList.DisplayMember = "Name";
-            presenter.TotalAmountLabel = TotalAmountLabel;
+            mainpresenter.TotalAmountLabel = TotalAmountLabel;
             // Инициализируем Customer через presenter
-            presenter.InitializeCustomer();
+            mainpresenter.InitializeCustomer();
             // Инициализируем Paypresenter
-            this.Paypresenter = new PaymentPresenter(presenter.Customer, presenter);
+            this.Paypresenter = new PaymentPresenter(mainpresenter.Customer, mainpresenter);
+            
             // Подписываемся на событие PaymentCompleted
             Paypresenter.PaymentCompleted += Paypresenter_PaymentCompleted;
             // Добавляем обработчик события SelectedIndexChanged к ProductList
-            ProductList.SelectedIndexChanged += ProductList_SelectedIndexChanged;
+            
             ProductPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void ShowProductImage(string imagePath)
@@ -52,20 +55,27 @@ namespace Курсовая
                 ShowProductImage(selectedProduct.ImagePath);
             }
         }
-
         public void Update(decimal newBudget)
         {
-            BudgetLabel.Text = $"Ваш бюджет: {newBudget} руб.";
+            BudgetLabel.Text = newBudget.ToString();
+            paymentForm.BudgetLabel.Text = newBudget.ToString();
+            
+
+            if(!string.IsNullOrEmpty(mainpresenter.BonusLabel.Text))
+                BonusLabel.Text = mainpresenter.BonusLabel.Text;
+            //BonusLabel = mainpresenter.BonusLabel;
         }
         private void Paypresenter_PaymentCompleted(object sender, EventArgs e)
         {
             ShoppingCartList.Items.Clear();
             mainpresenter.UpdateTotalAmount();
+
         }
 
         public void UpdateBudgetLabel(decimal newBudget)
         {
             BudgetLabel.Text = $"Ваш бюджет: {newBudget} руб.";
+           
         }
 
         public void ShowProductInfo(string info)
@@ -86,6 +96,7 @@ namespace Курсовая
             }
 
             mainpresenter.UpdateTotalAmount(); // Обновляем сумму в TotalAmountLabel
+
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -124,15 +135,21 @@ namespace Курсовая
 
         private void PayButton_Click(object sender, EventArgs e)
         {
-            string totalAmountValue = TotalAmountLabel.Text; // Получаем значение из лейбла
-            decimal userBudget = mainpresenter.GetUserBudgetLabel();
-            int bonusPoints;
-            if (int.TryParse(BonusLabel.Text, out bonusPoints))
-            {
-                // Используйте bonusPoints как целое число
-                PaymentForm paymentForm = new PaymentForm(totalAmountValue, Paypresenter, mainpresenter, userBudget, bonusPoints);
-                paymentForm.Show(); // Показываем вторую форму
-            }
+            //string totalAmountValue = TotalAmountLabel.Text; // Получаем значение из лейбла
+            //decimal userBudget = mainpresenter.GetUserBudgetLabel();
+            //int bonusPoints;
+            //int a = int.Parse(BonusLabel.Text);
+            //if (int.TryParse(BonusLabel.Text, out bonusPoints))
+            //{
+            // Используйте bonusPoints как целое число
+            paymentForm = new PaymentForm(Paypresenter, mainpresenter);
+           
+            paymentForm.TotalAmountLabel.Text = TotalAmountLabel.Text;
+            paymentForm.BudgetLabel.Text= mainpresenter.GetUserBudgetLabel().ToString();
+            paymentForm.BonusLabel.Text = BonusLabel.Text;
+            mainpresenter.TotalAmountLabelPay = paymentForm.TotalAmountLabel;
+            paymentForm.Show(); // Показываем вторую форму
+           // }
         }
 
         private void WeighButton_Click(object sender, EventArgs e)
@@ -163,5 +180,7 @@ namespace Курсовая
                 return null;
             }
         }
+
+
     }
 }
