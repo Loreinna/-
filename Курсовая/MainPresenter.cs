@@ -86,12 +86,15 @@ namespace Курсовая
 
         public void WeighProduct(Product product)
         {
-            GetUserWeight(); // Запрашиваем у пользователя вес товара
-            if (product != null && product.RequiresWeighing)
+
+            if (product != null )
             {
-                product.Weight = userWeight;
-                product.WeighItem(); // Вызываем метод взвешивания товара
-                product.RequiresWeighing = false;
+                if (product.RequiresWeighing)
+                {
+                    GetUserWeight(); // Запрашиваем у пользователя вес товара
+                    product.Weight = userWeight;
+                    product.WeighItem(); // Вызываем метод взвешивания товара
+                }
             }
             else if (product != null && !product.RequiresWeighing)
             {
@@ -158,7 +161,7 @@ namespace Курсовая
         }
         public void AddProductToBasket(Product product)
         {
-            if (product.RequiresWeighing)
+            if (product.RequiresWeighing && !product.IsWeighed)
             {
                 MessageBox.Show("Товар нужно взвесить перед добавлением в корзину.");
             }
@@ -213,6 +216,7 @@ namespace Курсовая
             {
                 ShoppingCartList.Items.Add($"{product.Name} - {product.Price} руб.");
             }
+
             UpdateTotalAmount(); // Обновляем итоговую сумму
         }
     }

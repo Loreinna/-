@@ -105,8 +105,11 @@ namespace Курсовая
 
             if (selectedProduct != null)
             {
-                // Проверяем, имеет ли продукт вес
-                if (!selectedProduct.RequiresWeighing)
+                if (selectedProduct.RequiresWeighing && !selectedProduct.IsWeighed)
+                {
+                    MessageBox.Show("Для этого продукта необходимо взвешивание.");
+                }
+                else
                 {
                     int quantity = (int)QuantityNumericUpDown.Value;
                     for (int i = 0; i < quantity; i++)
@@ -114,13 +117,12 @@ namespace Курсовая
                         mainpresenter.AddProductToBasket(selectedProduct);
                     }
                     UpdateShoppingCartView();
-                    // После добавления продукта обновляем итоговую сумму
                     mainpresenter.UpdateTotalAmount();
                 }
-                else
-                {
-                    MessageBox.Show("Для этого продукта необходимо взвешивание.");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите товар для добавления в корзину.");
             }
         }
 

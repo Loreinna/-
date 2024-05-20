@@ -13,6 +13,7 @@ namespace Курсовая
         public decimal Price { get; set; }
         public decimal Weight { get; set; }
         public bool RequiresWeighing { get; set; } // Необходимость взвешивания
+        public bool IsWeighed { get; set; } // Товар был взвешен
         public string ImagePath { get; set; }
 
         public Product(string name, decimal price, decimal weight, bool requiresWeighing, string imagePath)
@@ -22,6 +23,7 @@ namespace Курсовая
             Weight = weight;
             RequiresWeighing = requiresWeighing;
             ImagePath = imagePath;
+            IsWeighed = false;
         }
 
         public bool WeighItem()
@@ -29,6 +31,7 @@ namespace Курсовая
             if (RequiresWeighing)
             {
                 Price = Math.Round(Weight * Price);
+                IsWeighed = true;
                 // Логика взвешивания товара
                 MessageBox.Show($"Товар \"{Name}\" успешно взвешен.");
                 return true;
@@ -39,6 +42,7 @@ namespace Курсовая
                 return false;
             }
         }
+
 
     }
     public class ProductRepository
