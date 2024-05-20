@@ -28,11 +28,11 @@ namespace Курсовая
             mainpresenter.InitializeCustomer();
             // Инициализируем Paypresenter
             this.Paypresenter = new PaymentPresenter(mainpresenter.Customer, mainpresenter);
-            
+
             // Подписываемся на событие PaymentCompleted
             Paypresenter.PaymentCompleted += Paypresenter_PaymentCompleted;
             // Добавляем обработчик события SelectedIndexChanged к ProductList
-            
+
             ProductPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void ShowProductImage(string imagePath)
@@ -59,9 +59,9 @@ namespace Курсовая
         {
             BudgetLabel.Text = newBudget.ToString();
             paymentForm.BudgetLabel.Text = newBudget.ToString();
-            
 
-            if(!string.IsNullOrEmpty(mainpresenter.BonusLabel.Text))
+
+            if (!string.IsNullOrEmpty(mainpresenter.BonusLabel.Text))
                 BonusLabel.Text = mainpresenter.BonusLabel.Text;
             //BonusLabel = mainpresenter.BonusLabel;
         }
@@ -75,13 +75,9 @@ namespace Курсовая
         public void UpdateBudgetLabel(decimal newBudget)
         {
             BudgetLabel.Text = $"Ваш бюджет: {newBudget} руб.";
-           
+
         }
 
-        public void ShowProductInfo(string info)
-        {
-            ProductInfoTextBox.Text = info;
-        }
 
         public void UpdateShoppingCartView()
         {
@@ -145,13 +141,13 @@ namespace Курсовая
             //{
             // Используйте bonusPoints как целое число
             paymentForm = new PaymentForm(Paypresenter, mainpresenter);
-           
+
             paymentForm.TotalAmountLabel.Text = TotalAmountLabel.Text;
-            paymentForm.BudgetLabel.Text= mainpresenter.GetUserBudgetLabel().ToString();
+            paymentForm.BudgetLabel.Text = mainpresenter.GetUserBudgetLabel().ToString();
             paymentForm.BonusLabel.Text = BonusLabel.Text;
             mainpresenter.TotalAmountLabelPay = paymentForm.TotalAmountLabel;
             paymentForm.Show(); // Показываем вторую форму
-           // }
+                                // }
         }
 
         private void WeighButton_Click(object sender, EventArgs e)

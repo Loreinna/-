@@ -183,7 +183,7 @@ namespace Курсовая
         public void PayForBasket()
         {
             decimal totalAmount = CalculateTotalAmount();
-            TotalAmountLabel.Text = $"Итого: {totalAmount} руб.";
+            TotalAmountLabel.Text = $"{totalAmount} руб.";
         }
 
         public decimal CalculateTotalAmount()
