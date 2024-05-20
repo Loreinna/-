@@ -25,7 +25,7 @@ namespace Курсовая
         public PaymentForm(PaymentPresenter presenter, MainPresenter mainPresenter)
         {
             InitializeComponent();
-           // TotalAmountLabel.Text = totalAmount;
+            // TotalAmountLabel.Text = totalAmount;
             this.Paypresenter = presenter;
             //BudgetLabel.Text = budget.ToString();
             //BonusLabel.Text = bonusPoints.ToString();  // Инициализируем поле BonusLabel
@@ -53,16 +53,17 @@ namespace Курсовая
             }
             else if (CardRadioButton.Checked)
             {
+                Paypresenter.OpenCvcVerificationForm();
                 Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
             }
             else if (BonusRadioButton.Checked)
             {
                 Paypresenter.SetPaymentStrategy(new BonusPaymentStrategy(mainPresenter, Paypresenter, BonusLabel));
-                
+
             }
             else if (PayPartRadioButton.Checked)
             {
-                
+
                 if (!string.IsNullOrEmpty(CashAmountTextBox.Text) && !string.IsNullOrEmpty(CardAmountTextBox.Text))
                 {
                     // Проверяем, успешно ли произведен парсинг сумм
