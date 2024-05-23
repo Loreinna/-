@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Курсовая.Interface;
+using Курсовая.Presenters;
 
 namespace Курсовая
 {
@@ -42,7 +43,10 @@ namespace Курсовая
                 return false;
             }
         }
-
+        // Пустой конструктор для создания экземпляра продукта без передачи свойств
+        public Product()
+        {
+        }
 
     }
     public class ProductRepository

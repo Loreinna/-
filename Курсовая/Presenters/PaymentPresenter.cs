@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Курсовая.Interface;
 
-namespace Курсовая
+namespace Курсовая.Presenters
 {
     public class PaymentPresenter
     {
@@ -19,7 +19,7 @@ namespace Курсовая
         public PaymentPresenter(MainForm mainForm, Label bonusLabel)
         {
             this.mainForm = mainForm;
-     
+
         }
         public void OpenCvcVerificationForm()
         {
@@ -51,23 +51,18 @@ namespace Курсовая
 
         public void ProcessCardPayment(string cvcNumber)
         {
-            if (cvcNumber.Length == 3 && cvcNumber.All(char.IsDigit))
-            {
+            
                 // Оплата картой и прочие действия
-               SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, this));
+                SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, this));
 
 
                 PaymentCompleted?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                MessageBox.Show("Введите корректный CVC номер.");
-            }
+            
         }
         public PaymentPresenter(Customer customer, MainPresenter mainPresenter)
         {
 
-            this.Сustomer = customer;
+            Сustomer = customer;
             this.mainPresenter = mainPresenter;
         }
         public void SetPaymentStrategy(IPaymentStrategy strategy)

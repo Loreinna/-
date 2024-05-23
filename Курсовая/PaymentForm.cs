@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Курсовая.Interface;
+using Курсовая.Presenters;
 
 namespace Курсовая
 {
@@ -54,7 +55,8 @@ namespace Курсовая
             else if (CardRadioButton.Checked)
             {
                 Paypresenter.OpenCvcVerificationForm();
-                
+                Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
+
             }
             else if (BonusRadioButton.Checked)
             {

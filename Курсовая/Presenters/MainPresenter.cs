@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Курсовая.Interface;
 
-namespace Курсовая
+namespace Курсовая.Presenters
 {
     public class MainPresenter : IMainPresenter, ISubject
     {
@@ -16,11 +16,11 @@ namespace Курсовая
         private List<IObserver> observers = new List<IObserver>();
         public Label TotalAmountLabel { get; set; }
         public Label TotalAmountLabelPay { get; set; }
-        public Label BonusLabel {  get; set; }
+        public Label BonusLabel { get; set; }
         public decimal TotalAmountValue { get; set; }
 
         public bool isPayByBonus;
-        public int bonusPoints{get; set; }
+        public int bonusPoints { get; set; }
         private readonly ProductRepository productRepository;
         private decimal UserBudget;
         private decimal userWeight;
@@ -33,11 +33,11 @@ namespace Курсовая
 
         public MainPresenter(Customer customer, ListBox productList, ListBox shoppingCartList, Label totalAmountLabel)
         {
-            this.Customer = customer;
-            this.ProductList = productList;
-            this.ShoppingCartList = shoppingCartList;
-            this.TotalAmountLabel = totalAmountLabel;
-            this.productRepository = new ProductRepository();
+            Customer = customer;
+            ProductList = productList;
+            ShoppingCartList = shoppingCartList;
+            TotalAmountLabel = totalAmountLabel;
+            productRepository = new ProductRepository();
             BonusLabel = new Label();
             LoadProducts();
             GetUserBudget();
@@ -87,7 +87,7 @@ namespace Курсовая
         public void WeighProduct(Product product)
         {
 
-            if (product != null )
+            if (product != null)
             {
                 if (product.RequiresWeighing)
                 {
@@ -105,17 +105,6 @@ namespace Курсовая
                 MessageBox.Show("Выберите товар для взвешивания.");
             }
         }
-        //Метод для бюджета
-        public void GetUserBudget()
-        {
-            string inputBudget = Interaction.InputBox("Введите ваш бюджет:", "Бюджет", "1000");
-            if (!decimal.TryParse(inputBudget, out UserBudget))
-            {
-                MessageBox.Show("Некорректный формат бюджета! Используйте только цифры.");
-                GetUserBudget(); // Повторяем запрос бюджета, если был введен некорректный формат
-            }
-        }
-
         public void GetUserWeight()
         {
             string inputWeightGrams = Interaction.InputBox("Введите вес товара (в граммах):", "Вес", "1000");
@@ -131,6 +120,19 @@ namespace Курсовая
             }
         }
 
+        //Метод для бюджета
+        public void GetUserBudget()
+        {
+            string inputBudget = Interaction.InputBox("Введите ваш бюджет:", "Бюджет", "1000");
+            if (!decimal.TryParse(inputBudget, out UserBudget))
+            {
+                MessageBox.Show("Некорректный формат бюджета! Используйте только цифры.");
+                GetUserBudget(); // Повторяем запрос бюджета, если был введен некорректный формат
+            }
+        }
+
+
+
 
         // Метод для передачи бюджета в представление
         public decimal GetUserBudgetLabel()
@@ -140,7 +142,7 @@ namespace Курсовая
         //Вычитаем из бюджета
         public void SetUserBudget(decimal budget)
         {
-            this.UserBudget = budget;
+            UserBudget = budget;
 
         }
 
@@ -157,7 +159,7 @@ namespace Курсовая
             //BonusLabel.Text = $"{bonusPoints}";
             //надо думать
             if (TotalAmountLabelPay != null)
-            TotalAmountLabelPay.Text = $"{TotalAmountValue} руб.";
+                TotalAmountLabelPay.Text = $"{TotalAmountValue} руб.";
         }
         public void AddProductToBasket(Product product)
         {
@@ -167,12 +169,24 @@ namespace Курсовая
             }
             else
             {
-                Customer.AddToShoppingBasket(product);
+                Product productCopy = CreateProductCopy(product);
+                Customer.AddToShoppingBasket(productCopy);
                 UpdateShoppingCartView(); // Обновляем представление корзины
                 UpdateTotalAmount(); // Обновляем итоговую сумму
             }
         }
-
+        // Метод для создания копии продукта с определенными свойствами
+        private Product CreateProductCopy(Product product)
+        {
+            return new Product
+            {
+                Name = product.Name,
+                Price = product.Price,
+                Weight = product.Weight,
+                RequiresWeighing = product.RequiresWeighing,
+                ImagePath = product.ImagePath
+            };
+        }
         public void RemoveProductFromBasket(Product product)
         {
             Customer.RemoveFromShoppingBasket(product);
