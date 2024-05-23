@@ -128,12 +128,12 @@ namespace Курсовая.Interface
                     mainPresenter.UpdateShoppingCartView();
                     mainPresenter.UpdateTotalAmount();
                     paymentPresenter.OnPaymentCompleted();
-                    MessageBox.Show("Оплата всей суммы бонусами исчерпана.");
+                    MessageBox.Show("Оплата всей суммы бонусами исчерпана или ваша корзина пуста.");
                 }
             }
             else
             {
-                MessageBox.Show("Оплата суммы бонусами исчерпана.");
+                MessageBox.Show("Оплата суммы бонусами исчерпана или ваша корзина пуста.");
             }
         }
     }

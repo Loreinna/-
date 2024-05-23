@@ -116,9 +116,9 @@
             TotalAmountLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TotalAmountLabel.Location = new Point(849, 473);
             TotalAmountLabel.Name = "TotalAmountLabel";
-            TotalAmountLabel.Size = new Size(135, 21);
+            TotalAmountLabel.Size = new Size(49, 21);
             TotalAmountLabel.TabIndex = 6;
-            TotalAmountLabel.Text = "TotalAmountLabel";
+            TotalAmountLabel.Text = "0 руб";
             // 
             // label2
             // 
