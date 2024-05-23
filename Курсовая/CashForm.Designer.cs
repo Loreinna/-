@@ -33,7 +33,7 @@
             DenominationComboBox = new ComboBox();
             InsertedBillsListBox = new ListBox();
             TotalInsertedAmountLabel = new Label();
-            label1 = new Label();
+            TotalLabel = new Label();
             SuspendLayout();
             // 
             // AddBillButton
@@ -82,21 +82,21 @@
             TotalInsertedAmountLabel.TabIndex = 4;
             TotalInsertedAmountLabel.Text = "label1";
             // 
-            // label1
+            // TotalLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(37, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 5;
-            label1.Text = "label1";
+            TotalLabel.AutoSize = true;
+            TotalLabel.Location = new Point(37, 37);
+            TotalLabel.Name = "TotalLabel";
+            TotalLabel.Size = new Size(38, 15);
+            TotalLabel.TabIndex = 5;
+            TotalLabel.Text = "label1";
             // 
             // CashForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            Controls.Add(TotalLabel);
             Controls.Add(TotalInsertedAmountLabel);
             Controls.Add(InsertedBillsListBox);
             Controls.Add(DenominationComboBox);
@@ -115,6 +115,6 @@
         private ComboBox DenominationComboBox;
         private ListBox InsertedBillsListBox;
         private Label TotalInsertedAmountLabel;
-        private Label label1;
+        private Label TotalLabel;
     }
 }

@@ -15,11 +15,14 @@ namespace Курсовая
         public PaymentPresenter PaymentPresenter { get; set; }
         public decimal TotalAmount { get; set; }
         private decimal totalInsertedAmount;
-        
+        private decimal changeAmount;
+
         public CashForm()
         {
             InitializeComponent();
+            TotalLabel.Text = TotalAmount.ToString();
             this.Load += new EventHandler(CashPaymentForm_Load);
+
         }
 
         private void CashPaymentForm_Load(object sender, EventArgs e)
@@ -45,7 +48,10 @@ namespace Курсовая
         {
             if (totalInsertedAmount >= TotalAmount)
             {
+                changeAmount = totalInsertedAmount - TotalAmount;
                 PaymentPresenter.ProcessCashPayment(totalInsertedAmount);
+                ShowChange();
+                this.Close();
             }
             else
             {
@@ -56,6 +62,10 @@ namespace Курсовая
         private void UpdateTotalInsertedAmountLabel()
         {
             TotalInsertedAmountLabel.Text = $"Общая сумма вставленных купюр: {totalInsertedAmount} руб.";
+        }
+        private void ShowChange()
+        {
+            MessageBox.Show($"Оплачено наличными. Сумма: {TotalAmount} руб.\nСдача: {changeAmount} руб.");
         }
     }
 }

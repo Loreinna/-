@@ -34,7 +34,7 @@ namespace Курсовая.Interface
 
                 paymentPresenter.OnPaymentCompleted(); // Вызываем событие PaymentCompleted
 
-                MessageBox.Show($"Оплачено наличными. Сумма: {totalAmount} руб.");
+                //MessageBox.Show($"Оплачено наличными. Сумма: {totalAmount} руб.");
             }
             else
             {

@@ -42,7 +42,6 @@ namespace Курсовая
             if (totalInsertedAmount >= mainPresenter.TotalAmountValue)
             {
                 SetPaymentStrategy(new CashPaymentStrategy(mainPresenter, this));
-                Pay();
             }
             else
             {
