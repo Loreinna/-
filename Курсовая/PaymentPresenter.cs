@@ -27,11 +27,37 @@ namespace Курсовая
             cvcVerificationForm.PaymentPresenter = this;
             cvcVerificationForm.ShowDialog();
         }
+
+        public void OpenCashPaymentForm(decimal totalAmount)
+        {
+            CashForm cashPaymentForm = new CashForm
+            {
+                PaymentPresenter = this,
+                TotalAmount = totalAmount
+            };
+            cashPaymentForm.ShowDialog();
+        }
+        public void ProcessCashPayment(decimal totalInsertedAmount)
+        {
+            if (totalInsertedAmount >= mainPresenter.TotalAmountValue)
+            {
+                SetPaymentStrategy(new CashPaymentStrategy(mainPresenter, this));
+                Pay();
+            }
+            else
+            {
+                MessageBox.Show("Недостаточно средств для оплаты наличными.");
+            }
+        }
+
         public void ProcessCardPayment(string cvcNumber)
         {
             if (cvcNumber.Length == 3 && cvcNumber.All(char.IsDigit))
             {
                 // Оплата картой и прочие действия
+               SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, this));
+
+
                 PaymentCompleted?.Invoke(this, EventArgs.Empty);
             }
             else

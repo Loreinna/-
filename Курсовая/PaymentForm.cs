@@ -49,12 +49,12 @@ namespace Курсовая
         {
             if (CashRadioButton.Checked)
             {
-                Paypresenter.SetPaymentStrategy(new CashPaymentStrategy(mainPresenter, Paypresenter));
+                Paypresenter.OpenCashPaymentForm(mainPresenter.TotalAmountValue);
             }
             else if (CardRadioButton.Checked)
             {
                 Paypresenter.OpenCvcVerificationForm();
-                Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
+                
             }
             else if (BonusRadioButton.Checked)
             {

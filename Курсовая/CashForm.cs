@@ -15,10 +15,11 @@ namespace Курсовая
         public PaymentPresenter PaymentPresenter { get; set; }
         public decimal TotalAmount { get; set; }
         private decimal totalInsertedAmount;
-
+        
         public CashForm()
         {
             InitializeComponent();
+            this.Load += new EventHandler(CashPaymentForm_Load);
         }
 
         private void CashPaymentForm_Load(object sender, EventArgs e)
@@ -45,7 +46,6 @@ namespace Курсовая
             if (totalInsertedAmount >= TotalAmount)
             {
                 PaymentPresenter.ProcessCashPayment(totalInsertedAmount);
-                this.Close();
             }
             else
             {
@@ -59,4 +59,4 @@ namespace Курсовая
         }
     }
 }
-}
+

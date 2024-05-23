@@ -22,6 +22,7 @@ namespace Курсовая
         {
             string cvcNumber = CvcTextBox.Text;
             PaymentPresenter.ProcessCardPayment(cvcNumber);
+
             this.Close(); // Закрываем форму после подтверждения оплаты
         }
     }
