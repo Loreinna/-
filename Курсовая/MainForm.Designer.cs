@@ -37,7 +37,6 @@
             TotalAmountLabel = new Label();
             label2 = new Label();
             BudgetLabel = new Label();
-            button1 = new Button();
             label3 = new Label();
             label4 = new Label();
             WeighButton = new Button();
@@ -46,6 +45,7 @@
             label5 = new Label();
             label6 = new Label();
             BonusLabel = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)ProductPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)QuantityNumericUpDown).BeginInit();
             SuspendLayout();
@@ -133,20 +133,11 @@
             // BudgetLabel
             // 
             BudgetLabel.AutoSize = true;
-            BudgetLabel.Location = new Point(10, 19);
+            BudgetLabel.Location = new Point(97, 19);
             BudgetLabel.Name = "BudgetLabel";
             BudgetLabel.Size = new Size(31, 15);
             BudgetLabel.TabIndex = 9;
             BudgetLabel.Text = "2344";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(207, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 39);
-            button1.TabIndex = 10;
-            button1.Text = "Пополнить баланс";
-            button1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -223,12 +214,22 @@
             BonusLabel.TabIndex = 18;
             BonusLabel.Text = "42344";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 19);
+            label7.Name = "label7";
+            label7.Size = new Size(80, 15);
+            label7.TabIndex = 19;
+            label7.Text = "Ваш бюджет:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1107, 634);
+            Controls.Add(label7);
             Controls.Add(BonusLabel);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -237,7 +238,6 @@
             Controls.Add(WeighButton);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(button1);
             Controls.Add(BudgetLabel);
             Controls.Add(label2);
             Controls.Add(TotalAmountLabel);
@@ -266,7 +266,6 @@
         private Label TotalAmountLabel;
         private Label label2;
         private Label BudgetLabel;
-        private Button button1;
         private Label label3;
         private Label label4;
         private Button WeighButton;
@@ -275,5 +274,6 @@
         private Label label5;
         private Label label6;
         private Label BonusLabel;
+        private Label label7;
     }
 }

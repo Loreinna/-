@@ -18,7 +18,7 @@ namespace Курсовая
             mainpresenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
             mainpresenter.Attach(this); // Подписываем форму как наблюдателя
 
-            BudgetLabel.Text = $"Ваш бюджет: {mainpresenter.GetUserBudgetLabel()} руб.";// Отображаем бюджет пользователя на форме
+            BudgetLabel.Text = $"{mainpresenter.GetUserBudgetLabel()}";// Отображаем бюджет пользователя на форме
             BonusLabel.Text = $"{mainpresenter.bonusPoints}";
             ProductRepository productRepository = new ProductRepository(); // Привязываем данные из ProductRepository к ProductList на форме
             ProductList.DataSource = productRepository.Products;

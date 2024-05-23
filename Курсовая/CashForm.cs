@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Interface;
 
 namespace Курсовая
 {
@@ -20,7 +21,6 @@ namespace Курсовая
         public CashForm()
         {
             InitializeComponent();
-            TotalLabel.Text = TotalAmount.ToString();
             this.Load += new EventHandler(CashPaymentForm_Load);
 
         }
@@ -28,6 +28,7 @@ namespace Курсовая
         private void CashPaymentForm_Load(object sender, EventArgs e)
         {
             // Заполнение ComboBox номиналами купюр
+            TotalLabel.Text = TotalAmount.ToString();
             DenominationComboBox.Items.AddRange(new object[] { 1000, 500, 100, 50, 10, 5, 1 });
             DenominationComboBox.SelectedIndex = 0;
             UpdateTotalInsertedAmountLabel();
