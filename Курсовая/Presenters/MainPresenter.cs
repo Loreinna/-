@@ -183,9 +183,9 @@ namespace Курсовая.Presenters
             {
                 Name = product.Name,
                 Price = product.Price,
-                Weight = product.Weight,
                 RequiresWeighing = product.RequiresWeighing,
-                ImagePath = product.ImagePath
+                ImagePath = product.ImagePath,
+                IsWeighed = product.IsWeighed
             };
         }
         public void RemoveProductFromBasket(Product product)
@@ -193,6 +193,7 @@ namespace Курсовая.Presenters
             Customer.RemoveFromShoppingBasket(product);
             UpdateShoppingCartView();
             UpdateTotalAmount();
+            MessageBox.Show($"Продукт \"{product.Name}\" был удален.");
         }
 
         public void PayForBasket()
@@ -233,6 +234,7 @@ namespace Курсовая.Presenters
             }
 
             UpdateTotalAmount(); // Обновляем итоговую сумму
+
         }
         //ДЛЯ ТЕСТА/////////////////////////////////////////////////
         public void SetUserWeight(decimal weight)

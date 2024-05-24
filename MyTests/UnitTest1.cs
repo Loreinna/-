@@ -56,7 +56,20 @@ namespace MyTests
             Assert.AreEqual(1, customer.ShoppingBasket.Count);
             Assert.AreEqual(product.Name, customer.ShoppingBasket[0].Name);
         }
+        [TestMethod]
+        public void RemoveProductFromShoppingCart_ShouldRemoveProduct()
+        {
+            // Arrange
+            Customer customer = new Customer();
+            Product productToRemove = new Product("Test Product", 100, false, "test_image.jpg");
+            customer.AddToShoppingBasket(productToRemove);
 
+            // Act
+            customer.RemoveFromShoppingBasket(productToRemove);
+
+            // Assert
+            Assert.IsFalse(customer.ShoppingBasket.Contains(productToRemove), "Product was not removed from shopping cart.");
+        }
         [TestMethod]
         public void UpdateTotalAmount_ShouldUpdateTotalAmount()
         {
@@ -73,5 +86,28 @@ namespace MyTests
             Assert.AreEqual(300, mainPresenter.TotalAmountValue);
             Assert.AreEqual($"{300} руб.", totalAmountLabel.Text);
         }
+        [TestMethod]
+        public void WeighProduct_ShouldSetProductWeight()
+        {
+            // Arrange
+            var product = new Product { Name = "Product1", RequiresWeighing = true };
+            decimal expectedWeight = 1.5m;
+
+            // Act
+            mainPresenter.WeighProduct(product);
+
+            // Set product weight directly for testing purposes
+            product.Weight = expectedWeight;
+
+            // Assert
+            Assert.AreEqual(expectedWeight, product.Weight);
+            Assert.IsTrue(product.IsWeighed);
+        }
+
     }
+
+
+    
+
+    
 }

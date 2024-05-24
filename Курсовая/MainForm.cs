@@ -126,11 +126,18 @@ namespace Курсовая
 
         private void RemoveFromCartButton_Click(object sender, EventArgs e)
         {
-            Product selectedProduct = GetSelectedProduct();
-            mainpresenter.RemoveProductFromBasket(selectedProduct);
-            UpdateShoppingCartView();
-            // После удаления продукта обновляем итоговую сумму
-            mainpresenter.UpdateTotalAmount();
+            Product selectedProduct = GetSelectedProduct(); // Получаем выбранный продукт
+
+            if (selectedProduct != null)
+            {
+                mainpresenter.RemoveProductFromBasket(selectedProduct); // Удаляем продукт из корзины
+                UpdateShoppingCartView(); // Обновляем представление корзины
+                mainpresenter.UpdateTotalAmount(); // Обновляем итоговую сумму
+            }
+            else
+            {
+                MessageBox.Show("Выберите продукт для удаления из корзины.");
+            }
         }
 
         private void PayButton_Click(object sender, EventArgs e)
