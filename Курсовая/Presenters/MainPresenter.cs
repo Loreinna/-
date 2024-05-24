@@ -234,5 +234,10 @@ namespace Курсовая.Presenters
 
             UpdateTotalAmount(); // Обновляем итоговую сумму
         }
+        //ДЛЯ ТЕСТА/////////////////////////////////////////////////
+        public void SetUserWeight(decimal weight)
+        {
+            userWeight = weight;
+        }
     }
 }
