@@ -25,12 +25,6 @@ namespace Курсовая.Presenters
         private readonly ProductRepository productRepository;
         private decimal UserBudget;
         private decimal userWeight;
-        //private readonly MainForm mainForm;
-
-        //public MainPresenter(MainForm mainForm)
-        //{
-        //    this.mainForm = mainForm;
-        //}
 
         public MainPresenter(Customer customer, ListBox productList, ListBox shoppingCartList, Label totalAmountLabel)
         {

@@ -20,9 +20,6 @@ namespace Курсовая
         private int bonusPoints;
 
 
-
-
-
         public PaymentForm(PaymentPresenter presenter, MainPresenter mainPresenter)
         {
             InitializeComponent();
