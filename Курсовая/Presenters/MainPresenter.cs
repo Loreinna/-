@@ -5,6 +5,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 using Курсовая.Interface;
+using Курсовая.Models;
 
 namespace Курсовая.Presenters
 {

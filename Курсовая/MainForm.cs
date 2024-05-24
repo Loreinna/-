@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Курсовая.Interface;
+using Курсовая.Models;
 using Курсовая.Presenters;
 
 namespace Курсовая
@@ -23,7 +24,7 @@ namespace Курсовая
             BonusLabel.Text = $"{mainpresenter.bonusPoints}";
             ProductRepository productRepository = new ProductRepository(); // Привязываем данные из ProductRepository к ProductList на форме
             ProductList.DataSource = productRepository.Products;
-            ProductList.DisplayMember = "Name";
+            ProductList.DisplayMember = "NameAndPrice";
             mainpresenter.TotalAmountLabel = TotalAmountLabel;
             // Инициализируем Customer через presenter
             mainpresenter.InitializeCustomer();
