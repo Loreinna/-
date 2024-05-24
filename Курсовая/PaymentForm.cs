@@ -55,7 +55,7 @@ namespace Курсовая
             else if (CardRadioButton.Checked)
             {
                 Paypresenter.OpenCvcVerificationForm();
-                Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
+                //Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
 
             }
             else if (BonusRadioButton.Checked)

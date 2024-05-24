@@ -126,11 +126,11 @@ namespace Курсовая
 
         private void RemoveFromCartButton_Click(object sender, EventArgs e)
         {
-            Product selectedProduct = GetSelectedProduct(); // Получаем выбранный продукт
+           // Product selectedProduct = GetSelectedProduct(); // Получаем выбранный продукт
 
-            if (selectedProduct != null)
+            if (ShoppingCartList.SelectedIndex != -1)
             {
-                mainpresenter.RemoveProductFromBasket(selectedProduct); // Удаляем продукт из корзины
+                mainpresenter.RemoveProductFromBasket(ShoppingCartList.SelectedIndex); // Удаляем продукт из корзины
                 UpdateShoppingCartView(); // Обновляем представление корзины
                 mainpresenter.UpdateTotalAmount(); // Обновляем итоговую сумму
             }
@@ -163,7 +163,7 @@ namespace Курсовая
         {
             Product selectedProduct = GetSelectedProduct();
 
-            if (selectedProduct != null)
+            if (selectedProduct != null && selectedProduct.RequiresWeighing)
             {
                 mainpresenter.WeighProduct(selectedProduct);
                 mainpresenter.AddProductToBasket(selectedProduct);

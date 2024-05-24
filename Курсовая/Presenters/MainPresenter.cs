@@ -188,12 +188,12 @@ namespace Курсовая.Presenters
                 IsWeighed = product.IsWeighed
             };
         }
-        public void RemoveProductFromBasket(Product product)
+        public void RemoveProductFromBasket(int index)
         {
-            Customer.RemoveFromShoppingBasket(product);
+            Customer.RemoveFromShoppingBasket(index);
             UpdateShoppingCartView();
             UpdateTotalAmount();
-            MessageBox.Show($"Продукт \"{product.Name}\" был удален.");
+            //MessageBox.Show($"Продукт \"{product.Name}\" был удален.");
         }
 
         public void PayForBasket()

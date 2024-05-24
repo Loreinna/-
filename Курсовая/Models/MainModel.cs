@@ -122,9 +122,9 @@ namespace Курсовая.Models
             ShoppingBasket.Add(product);
         }
 
-        public void RemoveFromShoppingBasket(Product product)
+        public void RemoveFromShoppingBasket(int index)
         {
-            ShoppingBasket.Remove(product);
+            ShoppingBasket.RemoveAt(index);
         }
     }
 }

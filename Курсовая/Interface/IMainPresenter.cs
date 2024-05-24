@@ -13,7 +13,7 @@ namespace Курсовая.Interface
     public interface IMainPresenter
     {
         void AddProductToBasket(Product product);
-        void RemoveProductFromBasket(Product product);
+        void RemoveProductFromBasket(int index);
         void PayForBasket();
     }
 }

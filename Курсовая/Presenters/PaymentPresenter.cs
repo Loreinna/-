@@ -57,7 +57,7 @@ namespace Курсовая.Presenters
                 SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, this));
 
 
-                PaymentCompleted?.Invoke(this, EventArgs.Empty);
+                //PaymentCompleted?.Invoke(this, EventArgs.Empty);
             
         }
         public PaymentPresenter(Customer customer, MainPresenter mainPresenter)
