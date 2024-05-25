@@ -23,11 +23,7 @@ namespace Курсовая
         public PaymentForm(PaymentPresenter presenter, MainPresenter mainPresenter)
         {
             InitializeComponent();
-            // TotalAmountLabel.Text = totalAmount;
             this.Paypresenter = presenter;
-            //BudgetLabel.Text = budget.ToString();
-            //BonusLabel.Text = bonusPoints.ToString();  // Инициализируем поле BonusLabel
-
 
             if (mainPresenter != null)
             {
@@ -35,9 +31,7 @@ namespace Курсовая
             }
             else
             {
-                // Обработка случая, когда mainPresenter равен null
-                MessageBox.Show("Ошибка: отсутствует главный презентер. Пожалуйста, свяжитесь с администратором.");
-
+                MessageBox.Show("НЕТ МЕЙНПРЕЗЕНТЕРА(((");
             }
 
         }
@@ -52,7 +46,6 @@ namespace Курсовая
             else if (CardRadioButton.Checked)
             {
                 Paypresenter.OpenCvcVerificationForm();
-                //Paypresenter.SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, Paypresenter));
 
             }
             else if (BonusRadioButton.Checked)
@@ -65,7 +58,7 @@ namespace Курсовая
 
                 if (!string.IsNullOrEmpty(CashAmountTextBox.Text) && !string.IsNullOrEmpty(CardAmountTextBox.Text))
                 {
-                    // Проверяем, успешно ли произведен парсинг сумм
+                    // Проверяем, успешно ли произведено сложение сумм
                     if (decimal.TryParse(CashAmountTextBox.Text, out decimal cashAmount) && decimal.TryParse(CardAmountTextBox.Text, out decimal cardAmount))
                     {
                         // Обновляем стратегию частичной оплаты с новыми суммами

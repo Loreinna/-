@@ -52,12 +52,7 @@ namespace Курсовая.Presenters
 
         public void ProcessCardPayment(string cvcNumber)
         {
-            
-                // Оплата картой и прочие действия
                 SetPaymentStrategy(new CardPaymentStrategy(mainPresenter, this));
-
-
-                //PaymentCompleted?.Invoke(this, EventArgs.Empty);
             
         }
         public PaymentPresenter(Customer customer, MainPresenter mainPresenter)

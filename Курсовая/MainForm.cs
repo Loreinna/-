@@ -15,25 +15,22 @@ namespace Курсовая
         public MainForm()
         {
             InitializeComponent();
-            // MainPresenter presenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
             Customer customer = new Customer();
             mainpresenter = new MainPresenter(customer, new ListBox(), new ListBox(), new Label());
             mainpresenter.Attach(this); // Подписываем форму как наблюдателя
 
-            BudgetLabel.Text = $"{mainpresenter.GetUserBudgetLabel()}";// Отображаем бюджет пользователя на форме
+            BudgetLabel.Text = $"{mainpresenter.GetUserBudgetLabel()}";
             BonusLabel.Text = $"{mainpresenter.bonusPoints}";
             ProductRepository productRepository = new ProductRepository(); // Привязываем данные из ProductRepository к ProductList на форме
             ProductList.DataSource = productRepository.Products;
             ProductList.DisplayMember = "NameAndPrice";
             mainpresenter.TotalAmountLabel = TotalAmountLabel;
-            // Инициализируем Customer через presenter
             mainpresenter.InitializeCustomer();
-            // Инициализируем Paypresenter
+
             this.Paypresenter = new PaymentPresenter(mainpresenter.Customer, mainpresenter);
 
             // Подписываемся на событие PaymentCompleted
             Paypresenter.PaymentCompleted += Paypresenter_PaymentCompleted;
-            // Добавляем обработчик события SelectedIndexChanged к ProductList
 
             ProductPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -45,7 +42,7 @@ namespace Курсовая
             }
             else
             {
-                // Путь к изображению пустой или null, очищаем PictureBox
+                
                 ProductPictureBox.Image = null;
             }
         }
@@ -53,7 +50,7 @@ namespace Курсовая
         {
             if (ProductList.SelectedItem != null && ProductList.SelectedItem is Product selectedProduct)
             {
-                // Обновляем изображение продукта в PictureBox
+                
                 ShowProductImage(selectedProduct.ImagePath);
             }
         }
@@ -65,7 +62,6 @@ namespace Курсовая
 
             if (!string.IsNullOrEmpty(mainpresenter.BonusLabel.Text))
                 BonusLabel.Text = mainpresenter.BonusLabel.Text;
-            //BonusLabel = mainpresenter.BonusLabel;
         }
         private void Paypresenter_PaymentCompleted(object sender, EventArgs e)
         {
@@ -80,7 +76,6 @@ namespace Курсовая
 
         }
 
-
         public void UpdateShoppingCartView()
         {
             ShoppingCartList.Items.Clear();
@@ -93,8 +88,7 @@ namespace Курсовая
                 }
             }
 
-            mainpresenter.UpdateTotalAmount(); // Обновляем сумму в TotalAmountLabel
-
+            mainpresenter.UpdateTotalAmount(); 
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -126,13 +120,12 @@ namespace Курсовая
 
         private void RemoveFromCartButton_Click(object sender, EventArgs e)
         {
-           // Product selectedProduct = GetSelectedProduct(); // Получаем выбранный продукт
 
             if (ShoppingCartList.SelectedIndex != -1)
             {
-                mainpresenter.RemoveProductFromBasket(ShoppingCartList.SelectedIndex); // Удаляем продукт из корзины
-                UpdateShoppingCartView(); // Обновляем представление корзины
-                mainpresenter.UpdateTotalAmount(); // Обновляем итоговую сумму
+                mainpresenter.RemoveProductFromBasket(ShoppingCartList.SelectedIndex);
+                UpdateShoppingCartView();
+                mainpresenter.UpdateTotalAmount();
             }
             else
             {
@@ -142,23 +135,14 @@ namespace Курсовая
 
         private void PayButton_Click(object sender, EventArgs e)
         {
-            //string totalAmountValue = TotalAmountLabel.Text; // Получаем значение из лейбла
-            //decimal userBudget = mainpresenter.GetUserBudgetLabel();
-            //int bonusPoints;
-            //int a = int.Parse(BonusLabel.Text);
-            //if (int.TryParse(BonusLabel.Text, out bonusPoints))
-            //{
-            // Используйте bonusPoints как целое число
             paymentForm = new PaymentForm(Paypresenter, mainpresenter);
 
             paymentForm.TotalAmountLabel.Text = TotalAmountLabel.Text;
             paymentForm.BudgetLabel.Text = mainpresenter.GetUserBudgetLabel().ToString();
             paymentForm.BonusLabel.Text = BonusLabel.Text;
             mainpresenter.TotalAmountLabelPay = paymentForm.TotalAmountLabel;
-            paymentForm.Show(); // Показываем вторую форму
-                                // }
+            paymentForm.Show();
         }
-
         private void WeighButton_Click(object sender, EventArgs e)
         {
             Product selectedProduct = GetSelectedProduct();
@@ -167,7 +151,7 @@ namespace Курсовая
             {
                 mainpresenter.WeighProduct(selectedProduct);
                 mainpresenter.AddProductToBasket(selectedProduct);
-                UpdateShoppingCartView(); // Обновляем представление корзины после взвешивания
+                UpdateShoppingCartView(); 
             }
             else
             {

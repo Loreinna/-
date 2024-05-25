@@ -88,7 +88,7 @@ namespace Курсовая.Presenters
                 {
                     GetUserWeight(); // Запрашиваем у пользователя вес товара
                     product.Weight = userWeight;
-                    product.WeighItem(); // Вызываем метод взвешивания товара
+                    product.WeighItem(); 
                 }
             }
             else if (product != null && !product.RequiresWeighing)
@@ -106,7 +106,7 @@ namespace Курсовая.Presenters
             if (!decimal.TryParse(inputWeightGrams, out decimal weightGrams) || weightGrams <= 0)
             {
                 MessageBox.Show("Некорректный формат веса! Используйте положительное число.");
-                GetUserWeight(); // Повторяем запрос веса, если был введен некорректный формат
+                GetUserWeight(); 
             }
             else
             {
@@ -115,19 +115,15 @@ namespace Курсовая.Presenters
             }
         }
 
-        //Метод для бюджета
         public void GetUserBudget()
         {
             string inputBudget = Interaction.InputBox("Введите ваш бюджет:", "Бюджет", "1000");
             if (!decimal.TryParse(inputBudget, out UserBudget))
             {
                 MessageBox.Show("Некорректный формат бюджета! Используйте только цифры.");
-                GetUserBudget(); // Повторяем запрос бюджета, если был введен некорректный формат
+                GetUserBudget(); 
             }
         }
-
-
-
 
         // Метод для передачи бюджета в представление
         public decimal GetUserBudgetLabel()
@@ -138,7 +134,6 @@ namespace Курсовая.Presenters
         public void SetUserBudget(decimal budget)
         {
             UserBudget = budget;
-
         }
 
         public void InitializeCustomer()
@@ -151,7 +146,6 @@ namespace Курсовая.Presenters
             TotalAmountValue = CalculateTotalAmount();
 
             TotalAmountLabel.Text = $"{TotalAmountValue} руб.";
-            //BonusLabel.Text = $"{bonusPoints}";
             //надо думать
             if (TotalAmountLabelPay != null)
                 TotalAmountLabelPay.Text = $"{TotalAmountValue} руб.";
@@ -166,8 +160,8 @@ namespace Курсовая.Presenters
             {
                 Product productCopy = CreateProductCopy(product);
                 Customer.AddToShoppingBasket(productCopy);
-                UpdateShoppingCartView(); // Обновляем представление корзины
-                UpdateTotalAmount(); // Обновляем итоговую сумму
+                UpdateShoppingCartView(); 
+                UpdateTotalAmount(); 
             }
         }
         // Метод для создания копии продукта с определенными свойствами
@@ -187,7 +181,6 @@ namespace Курсовая.Presenters
             Customer.RemoveFromShoppingBasket(index);
             UpdateShoppingCartView();
             UpdateTotalAmount();
-            //MessageBox.Show($"Продукт \"{product.Name}\" был удален.");
         }
 
         public void PayForBasket()
@@ -208,16 +201,15 @@ namespace Курсовая.Presenters
 
         public int CalculateBonusPoints(decimal userBudget)
         {
-            // Рассчитываем максимальное количество бонусных очков (число округляем до целого числа)
+    
             int maxBonusPoints = (int)(userBudget / 4);
 
-            // Генерируем случайное количество бонусных очков в диапазоне от 1 до максимального значения
+
             Random random = new Random();
             int GeneratedbonusPoints = random.Next(1, maxBonusPoints + 1);
 
             return GeneratedbonusPoints;
         }
-
 
         public void UpdateShoppingCartView()
         {
@@ -227,7 +219,7 @@ namespace Курсовая.Presenters
                 ShoppingCartList.Items.Add($"{product.Name} - {product.Price} руб.");
             }
 
-            UpdateTotalAmount(); // Обновляем итоговую сумму
+            UpdateTotalAmount(); 
 
         }
         //ДЛЯ ТЕСТА/////////////////////////////////////////////////

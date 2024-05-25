@@ -26,14 +26,14 @@ namespace Курсовая
             string cvcNumber = CvcTextBox.Text;
             if (cvcNumber.Length == 3 && cvcNumber.All(char.IsDigit))
             {
-                // Оплата картой и прочие действия
+                
                 PaymentPresenter.ProcessCardPayment(cvcNumber);
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Введите корректный CVC номер.");
-                CvcTextBox.Clear(); // Очищаем TextBox для повторного ввода
+                CvcTextBox.Clear();
                 CvcTextBox.Focus();
             }
 
