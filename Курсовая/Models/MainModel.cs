@@ -11,12 +11,20 @@ namespace Курсовая.Models
     public class Product : IWeighable
     {
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public decimal price;
+        public decimal Price { 
+            get {
+                if (RequiresWeighing)
+                    return Math.Round(Weight * price, 2);
+                else return price;
+            } 
+            set { this.price = value;}
+        }
         public decimal Weight { get; set; }
         public bool RequiresWeighing { get; set; } // Необходимость взвешивания
         public bool IsWeighed { get; set; } // Товар был взвешен
         public string ImagePath { get; set; }
-        public string NameAndPrice => $"{Name} - {Price} руб.";
+        public string NameAndPrice => $"{Name} - {price} руб.";
         public Product(string name, decimal price, bool requiresWeighing, string imagePath)
         {
             Name = name;
@@ -24,13 +32,14 @@ namespace Курсовая.Models
             RequiresWeighing = requiresWeighing;
             ImagePath = imagePath;
             IsWeighed = false;
+            //Price = Math.Round(Weight * Price, 2);
         }
 
         public bool WeighItem()
         {
             if (RequiresWeighing)
             {
-                Price = Math.Round(Weight * Price);
+                //Price = Math.Round(Weight * Price,2);
                 IsWeighed = true;
                 // Логика взвешивания товара
                 MessageBox.Show($"Товар \"{Name}\" успешно взвешен.");

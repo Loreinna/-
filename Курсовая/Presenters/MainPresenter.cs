@@ -159,6 +159,9 @@ namespace Курсовая.Presenters
             else
             {
                 Product productCopy = CreateProductCopy(product);
+                product.IsWeighed = false;
+                //product.Weight= 0;
+                //product.RequiresWeighing = true;
                 Customer.AddToShoppingBasket(productCopy);
                 UpdateShoppingCartView(); 
                 UpdateTotalAmount(); 
@@ -170,7 +173,8 @@ namespace Курсовая.Presenters
             return new Product
             {
                 Name = product.Name,
-                Price = product.Price,
+                Price = product.price,
+                Weight = product.Weight,
                 RequiresWeighing = product.RequiresWeighing,
                 ImagePath = product.ImagePath,
                 IsWeighed = product.IsWeighed
@@ -216,6 +220,7 @@ namespace Курсовая.Presenters
             ShoppingCartList.Items.Clear();
             foreach (Product product in Customer.ShoppingBasket)
             {
+
                 ShoppingCartList.Items.Add($"{product.Name} - {product.Price} руб.");
             }
 
