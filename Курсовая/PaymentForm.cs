@@ -55,6 +55,8 @@ namespace Курсовая
             }
             else if (PayPartRadioButton.Checked)
             {
+                CashAmountTextBox.Visible = true;
+                CardAmountTextBox.Visible = true;
 
                 if (!string.IsNullOrEmpty(CashAmountTextBox.Text) && !string.IsNullOrEmpty(CardAmountTextBox.Text))
                 {

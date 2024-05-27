@@ -165,7 +165,8 @@ namespace Курсовая.Interface
                 // Проверяем наличие средств наличными
                 if (cashAmount > 0 && userBudget >= cashAmount)
                 {
-                    mainPresenter.SetUserBudget(userBudget - cashAmount);
+                    userBudget -= cashAmount;
+                    mainPresenter.SetUserBudget(userBudget);
                     remainingAmount -= cashAmount;
                     mainPresenter.UpdateBudgetAfterPayment(totalAmount); // Обновляем бюджет
                     mainPresenter.Customer.ClearShoppingBasket();
@@ -176,7 +177,8 @@ namespace Курсовая.Interface
                 // Проверяем наличие средств на карте
                 if (cardAmount > 0 && userBudget >= cardAmount)
                 {
-                    mainPresenter.SetUserBudget(userBudget - cardAmount);
+                    userBudget -= cardAmount;
+                    mainPresenter.SetUserBudget(userBudget);
                     remainingAmount -= cardAmount;
                     mainPresenter.UpdateBudgetAfterPayment(totalAmount); // Обновляем бюджет
                     mainPresenter.Customer.ClearShoppingBasket();
@@ -192,10 +194,7 @@ namespace Курсовая.Interface
                     paymentPresenter.OnPaymentCompleted();
                     MessageBox.Show("Оплата частично успешно выполнена.");
                 }
-                else
-                {
-                    MessageBox.Show("Недостаточно средств для оплаты указанными способами.");
-                }
+
             }
             else
             {
